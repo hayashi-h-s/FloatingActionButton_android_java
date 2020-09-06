@@ -12,11 +12,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView textView;
+
     private Button button;
+    private FloatingActionButton fab;
     private DialogFragment dialogFragment;
     private FragmentManager fragmentManager;
 
@@ -29,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.text_view);
 
         Button button = findViewById(R.id.button);
+
+        fab = findViewById(R.id.fab_dashboard);
 
 
         // ボタンタップでAlertを表示させる
@@ -43,6 +50,15 @@ public class MainActivity extends AppCompatActivity {
                 dialogFragment.show(fragmentManager, "test alert dialog");
             }
         });
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "ボタンクリック", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 
     public void setTextView(String message){
